@@ -9,8 +9,8 @@ mijn gekozen features zijn dikgedrukt
 1. **Afbeeldingen uitzetten**
 2. Custom fonts uitzetten
 3. Kleur uitzetten & kleurenblindheid instellen
-4. **Muis/Trackpad werkt niet**
-5. Breedband internet uitzetten
+4. Muis/Trackpad werkt niet
+5. **Breedband internet uitzetten**
 6. Javascript (volledig)
 7. Cookies niet accepteren
 8. localStorage doet het niet
