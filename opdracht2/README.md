@@ -30,3 +30,8 @@ mijn gekozen features zijn dikgedrukt
 - Zoek uit hoe je dit kunt testen (hoe kun je een feature ‘uitzetten’)
 - Vind een aantal sites waar dit ook problemen oplevert (uit je directe omgeving)
 - Beschrijf hoe je dit kan fiksen
+
+
+## Gekozen website - Zalando
+
+ik heb gekozen voor de website van zalando. Als ik de afbeelding uit zet dan is de website nog soort van bruikbaar, de alt tekst is niet zichtbaar jammer genoeg.
