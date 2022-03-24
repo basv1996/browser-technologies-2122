@@ -34,4 +34,8 @@ mijn gekozen features zijn dikgedrukt
 
 ## Gekozen website - Zalando
 
-ik heb gekozen voor de website van zalando. Als ik de afbeelding uit zet dan is de website nog soort van bruikbaar, de alt tekst is niet zichtbaar jammer genoeg.
+Ik heb gekozen voor de website van zalando. Door middel van de web developer tools kan ik verschillende features uitzetten van een website. Dit is erg handig met testen. Als ik de afbeelding uit zet dan is de website nog soort van bruikbaar, de alt tekst is niet zichtbaar jammer genoeg maar de titels zijn zichtbaar.
+als ik de website test op een 2g netwerk dan is deze praktisch onbruikbaar. De website laadt enorm langzaam en kan niet op de overzichtspagina komen van de prodcuten die ik zoek. Er wordt een standaard website van zalando geladen.
+
+[zalando without images](https://raw.githubusercontent.com/basv1996/browser-technologies-2122/main/opdracht2/img/Zalando_without_images.png)
+[zalando on a 2g internet connection](https://raw.githubusercontent.com/basv1996/browser-technologies-2122/main/opdracht2/img/Zalando_without_good_internet.png)
