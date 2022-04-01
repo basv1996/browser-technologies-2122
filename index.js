@@ -78,12 +78,15 @@ app.post('/cart', (req, res) => {
   shirtData.id =  uuidv4()
   userInput = JSON.stringify(shirtData)
  
-  fs.readFile('data/userData.json', 'UTF-8', (err, data) =>  {
+  const existingShirt = JSON.parse(fs.readFileSync('data/userData.json'))
+  
+  const shirtExists = existingShirt.customerData.find(  ({ id }) => id === req.body.id )
 
-    const shirtExists = shirtData.find(
-      ({ id }) => id === shirtData.id
-  )
-  })
+  console.log("shr=irt exists is: ", shirtExists)
+
+  if(!shirtExists){
+    existingShirt.push(req.body)
+  }
 
   fs.writeFile('data/userData.json', userInput, 'utf8', cb => {
     console.log("werk dan, schrijf naar JSON")
