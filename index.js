@@ -3,7 +3,8 @@ const { v4: uuidv4 } = require('uuid')
 const express = require("express")
 const app = express();
 const fs = require('fs')
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const { Console } = require('console');
 
 
 app.use(express.json())
@@ -23,7 +24,7 @@ app.set("views", "./src/views")
 // Routes
 // Route. Luistert naar alle GET requests op /
 app.get('/', (req, res) => {
-  fs.readFile('data/userData.json', 'UTF-8', function (err, data) {
+  fs.readFile('data/userData.json', 'UTF-8', (err, data)  => {
     if (err) throw err
     console.log('data is: ', data)
     let info = JSON.parse(data)
@@ -68,12 +69,22 @@ app.get('/cart', (req, res) => {
 
 app.post('/cart', (req, res) => {
   const shirtData = {
+    id: req.body.id,
     Gender: req.body.gender,
     Size: req.body.shirtSize,
     Color: req.body.shirtColor,
     Text: req.body.textValue,
   };
+  shirtData.id =  uuidv4()
   userInput = JSON.stringify(shirtData)
+ 
+  fs.readFile('data/userData.json', 'UTF-8', (err, data) =>  {
+
+    const shirtExists = shirtData.find(
+      ({ id }) => id === shirtData.id
+  )
+  })
+
   fs.writeFile('data/userData.json', userInput, 'utf8', cb => {
     console.log("werk dan, schrijf naar JSON")
   })
@@ -82,6 +93,30 @@ app.post('/cart', (req, res) => {
   shirtData: shirtData, 
   userData: userInput
 })
+})
+
+app.get('/bedankt', (req, res) => {
+  res.render("bedankt.ejs"
+  )
+})
+
+app.post('/bedankt', (req, res) => {
+  const personalInformation = {
+    Firstname: req.body.fname,
+    Email: req.body.email,
+    id: req.body.id,
+    Gender: req.body.gender,
+    Size: req.body.shirtSize,
+    Color: req.body.shirtColor,
+    Text: req.body.textValue,
+  }
+ 
+  res.render("bedankt.ejs", {
+    personalInformation: personalInformation,
+    //shirtData: shirtData
+  }
+  )
+  console.log("bedankt page body", req.body)
 })
 
 app.get('/*', (req, res) => {
