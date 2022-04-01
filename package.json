@@ -1,0 +1,32 @@
+{
+  "name": "browser-technologies-2122",
+  "version": "1.0.0",
+  "description": "eindopdracht BT2122",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basv1996/browser-technologies-2122.git"
+  },
+  "author": "Bas Vugts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/basv1996/browser-technologies-2122/issues"
+  },
+  "homepage": "https://github.com/basv1996/browser-technologies-2122#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "uuid": "^8.3.2"
+  }
+}

@@ -128,3 +128,17 @@ Vrijdag bespreken we in groepjes de vorderingen voor de eindopdracht. Zorg dat j
 |---|---|
 | 9:30 | Vorderingen bespreken & feedback in groepjes |
 | 16:00 | Work Hard Play Hard |
+
+#### Packages
+
+- express session
+I used this one because the data is not stored inside a cookie itself and the data is stored server side instead of client side.
+- body parser
+I used the package body-parser because it extracts the entire body portion of an incoming request stream and exposes it on req.body.
+
+
+
+## Bronnen
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex?retiredLocale=nl
+- https://stackoverflow.com/questions/38306569/what-does-body-parser-do-with-express
+- https://www.svgrepo.com/svg/404253/t-shirt
