@@ -54,7 +54,16 @@ app.post('/mydesigns', (req, res) => {
 
 app.get('/cart', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
+const errortje = req.query.error
+  console.log(errortje)
+  console.log(typeof errortje)
+  error = ""
+  if(errortje === "true") {
+    error = "You haven't filled in an @ in your email adress"
+  } 
+
   res.render("cart.ejs", {
+    errorMsg: error,
     bestaandeShirtjes: existingShirtInJSON.shirtjes
 })
 })
@@ -73,12 +82,17 @@ app.post('/cart', (req, res) => {
   const existing_ID = existingShirtInJSON.id
   const newShirtje = req.body
 
+
   if(existing_ID !== req.body.id){
   existingShirtInJSON.shirtjes.push(newShirtje)
   const stringData = JSON.stringify(existingShirtInJSON, null, 2)
   fs.writeFileSync('data/statham.json', stringData)
 }
+
+
+
   res.render("cart.ejs", {
+ 
   shirtData: shirtData, 
   bestaandeShirtjes: existingShirtInJSON.shirtjes
 })
@@ -112,11 +126,23 @@ app.get('/bedankt', (req, res) => {
   })
 })
 
+
+var error  = "Your email doesn't have an @"
 app.post('/bedankt', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
   const personalInformation = {
     Firstname: req.body.fname,
     Email: req.body.email,
+  }
+
+  if(!personalInformation.Email.includes("@")){
+    error = "test"
+    res.redirect('/cart?error=true')
+
+    return false;
+    // res.redirect('/cart', {
+    //   errorMsg: error
+    // })
   }
  
   res.render("bedankt.ejs", {
