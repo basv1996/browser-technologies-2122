@@ -126,3 +126,8 @@ voorbeeld:
   }
 }
 ```
+Dit betekend dat de CSS alleen wordt uitgeveoerd als de `display: flex` ondersteund wordt in de browser.
+
+### Javascript 
+In javaScript kan je een feature testen met een if. De code hoe hoe er ongeveer uit zou kunnen zien ziet er als volgt uit:
+![Breakdown schets](https://raw.githubusercontent.com/basv1996/browser-technologies-2122/main/img/JS_Support.png)
