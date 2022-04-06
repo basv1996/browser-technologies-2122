@@ -1,0 +1,25 @@
+{
+  "shirtjes": [
+    {
+      "id": "8545c585-0576-40a7-a0cb-074834449d60",
+      "Gender": "Male",
+      "Size": "XS",
+      "Color": "black",
+      "Text": "1"
+    },
+    {
+      "id": "8545c585-0576-40a7-a0cb-07460",
+      "Gender": "Male",
+      "Size": "XS",
+      "Color": "red",
+      "Text": "1"
+    },
+    {
+      "id": "a739b0a0-f316-4625-9b46-f00b6c467db4",
+      "gender": "Male",
+      "shirtSize": "XL",
+      "shirtColor": "blue",
+      "textValue": "hallooo"
+    }
+  ]
+}

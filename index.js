@@ -24,7 +24,7 @@ app.set("views", "./src/views")
 // Routes
 // Route. Luistert naar alle GET requests op /
 app.get('/', (req, res) => {
-  fs.readFile('data/userData.json', 'UTF-8', (err, data)  => {
+  fs.readFile('data/statham.json', 'UTF-8', (err, data)  => {
     if (err) throw err
     console.log('data is: ', data)
     let info = JSON.parse(data)
@@ -69,28 +69,24 @@ app.get('/cart', (req, res) => {
 
 app.post('/cart', (req, res) => {
   const shirtData = {
-    id: req.body.id,
+    id: req.body.id = uuidv4(),
     Gender: req.body.gender,
     Size: req.body.shirtSize,
     Color: req.body.shirtColor,
     Text: req.body.textValue,
   };
-  shirtData.id =  uuidv4()
+  //shirtData.id =  uuidv4()
   userInput = JSON.stringify(shirtData)
  
-  const existingShirt = JSON.parse(fs.readFileSync('data/userData.json'))
-  
-  const shirtExists = existingShirt.customerData.find(  ({ id }) => id === req.body.id )
+  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
+  const existing_ID = existingShirtInJSON.id
+  const newShirtje = req.body
 
-  console.log("shr=irt exists is: ", shirtExists)
-
-  if(!shirtExists){
-    existingShirt.push(req.body)
-  }
-
-  fs.writeFile('data/userData.json', userInput, 'utf8', cb => {
-    console.log("werk dan, schrijf naar JSON")
-  })
+  if(existing_ID !== req.body.id){
+  existingShirtInJSON.shirtjes.push(newShirtje)
+  const stringData = JSON.stringify(existingShirtInJSON, null, 2)
+  fs.writeFileSync('data/statham.json', stringData)
+}
   //console.log("shirtdata for cart",JSON.parse(shirtData))
   res.render("cart.ejs", {
   shirtData: shirtData, 
