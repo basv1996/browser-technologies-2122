@@ -7,13 +7,15 @@
             <p>We sent the information to your email at: <b><%=  personalInformation.Email %> </b></p>
             <p>Your orderd the following:</p>
             <ul>
-                <li><b>T-shirt:</b> </li>
+                <li><b>Your T-shirts:</b> </li>
+                <% bestaandeShirtjes.forEach(shirtje => {   %> 
                 <ul>
-                    <li>Gender: <%= personalInformation.Gender %></li>
-                    <li>Size: <%= personalInformation.Size  %></li>
-                    <li>Color: <%= personalInformation.Color %></li>
-                    <li>Text: <%= personalInformation.Text %></li>
+                    <li>Gender: <%= shirtje.gender %></li>
+                    <li>Size: <%= shirtje.shirtSize  %></li>
+                    <li>Color: <%= shirtje.shirtColor %></li>
+                    <li>Text: <%= shirtje.textValue %></li>
                 </ul>
+                <% }) %>
             </ul>
         </section>
        <a href="/" >Back to home</a>

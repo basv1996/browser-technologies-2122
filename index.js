@@ -63,8 +63,12 @@ app.post('/mydesigns', (req, res) => {
 
 
 app.get('/cart', (req, res) => {
-  res.render("cart.ejs")
+  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
+  res.render("cart.ejs", {
+    bestaandeShirtjes: existingShirtInJSON.shirtjes
+  
   //res.send("cart page")
+})
 })
 
 app.post('/cart', (req, res) => {
@@ -90,32 +94,58 @@ app.post('/cart', (req, res) => {
   //console.log("shirtdata for cart",JSON.parse(shirtData))
   res.render("cart.ejs", {
   shirtData: shirtData, 
-  userData: userInput
+  bestaandeShirtjes: existingShirtInJSON.shirtjes
 })
 })
 
+//Deleting a single item
+app.post('/delete/:id', (req, res) => {
+  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
+  const existing_ID = existingShirtInJSON.shirtjes.id
+  url_ID = req.params.id;
+  console.log("show json data: ", existingShirtInJSON)
+  console.log("url id geg: ",url_ID)
+  console.log(existingShirtInJSON.shirtjes)
+ 
+})
+
+
+
+
+// //deleting a single user
+// router.post("/delete", function (req, res) {
+//   const DBUserID = ObjectID(req.body.ID);
+//   db.initialize(dbName, collectionName, function (dbCollection) {
+//     dbCollection.deleteOne({ _id: DBUserID }, function (error) {
+//       if (error) throw error;
+//       res.render("pages/delete-succes", {
+//         title: "Delete was succesfull",
+//       });
+//     });
+//   });
+// });
+
 app.get('/bedankt', (req, res) => {
-  res.render("bedankt.ejs"
-  )
+ 
+  res.render("bedankt.ejs", {
+   
+  })
 })
 
 app.post('/bedankt', (req, res) => {
+  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
   const personalInformation = {
     Firstname: req.body.fname,
     Email: req.body.email,
-    id: req.body.id,
-    Gender: req.body.gender,
-    Size: req.body.shirtSize,
-    Color: req.body.shirtColor,
-    Text: req.body.textValue,
   }
  
   res.render("bedankt.ejs", {
     personalInformation: personalInformation,
-    //shirtData: shirtData
+    bestaandeShirtjes: existingShirtInJSON.shirtjes
   }
   )
   console.log("bedankt page body", req.body)
+  console.log("bestaande shirtjess: ", existingShirtInJSON.shirtjes)
 })
 
 app.get('/*', (req, res) => {
