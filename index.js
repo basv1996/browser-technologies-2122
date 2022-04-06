@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 const PORT = process.env.PORT || 1234
 
 // Gebruik body-parser om te lezen wat er in POST requests van de form staat
+app.use(express.static("static"))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

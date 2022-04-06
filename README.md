@@ -15,6 +15,8 @@ Dit project is een studenten enquête in de vorm van een website waarbij het pro
 Ik heb als eerst een breakdown schets gemaakt om goed na te kunnen denken over de core functionaliteiten van mijn app.
 ![Breakdown schets](https://raw.githubusercontent.com/basv1996/browser-technologies-2122/main/img/breakdownSchets.png)
 
+De core functionaliteit van mijn applicatie is dat de gebruiker een t shirt kan modifien en bestellen. Hiernaast is de pleasurable laag dat de gebruiker deze kan aanpassen en dit visueel ziet veranderen voor zijn of haar ogen.
+
 ## Problemen inclusief oplossingen
 1. Afbeeldingen
     1. aangezien afbeeldingen veel laad tijd hebben en deze uitgezet kunnen worden heb ik ervoor gekozen SVG's te gebruiken. Deze wordt bijna overal gesupport behalve op IE 6-8 en op de android browser 2.1-2.3.
@@ -24,7 +26,7 @@ Ik heb als eerst een breakdown schets gemaakt om goed na te kunnen denken over d
 
 ## De verschillende geteste CSS en JavaScript features:
 
-
+## Feature Detection
 
 ## De verschillende geteste browsers:
 
@@ -39,7 +41,7 @@ Ik heb als eerst een breakdown schets gemaakt om goed na te kunnen denken over d
 - Mobile: Safari 7
 
 
-## Features
+
 
 ## To-do
 |                     |  |
@@ -54,36 +56,45 @@ Ik heb als eerst een breakdown schets gemaakt om goed na te kunnen denken over d
 | Gebruiker moet meerdere t-shirts kunnen maken en herzien, en moet dus een overzichtspagina hebben.     |   ✅     |
 | Bestel pagina om een ontwerp kopen en laten maken     |    ✅    |
 
+## Feature lijst
 
+### Afbeeldingen uitzetten
+Als je afbeeldingen op mijn website zou uitzetten zou dit niks verandere voor de performance van mijn website. Aangezien ik gebruik maak van SVG's in plaats van afbeeldingen heeft dit geen negatief resultaat.
+
+### Custom fonts uitzetten
+Als het custom font wordt uitgezet dan bezorgt dit geen negatieve ervaring voor de gebruiker. De website heeft een fallback font om op terug te vallen als het custom font niet werkt.
+
+## Kleur uitzetten
+
+Ik heb m'n website vrij basic gehouden. Hierdoor is het voor kleurenblinden goed te onderscheiden.
 
 ### Muis/Trackpad
 Ik heb mijn website getest met keyboard only. Je kan makkelijk door de website heen tabben. De core functionaliteit van de website werkt naar toe behoren en alle belangrijke aspecten gaat de tab over heen.
 
 
-### Internet
+### Breedband Internet
 Ik heb de wbsite getest met een regular 2G verbinding. De website laad nog steeds erg snel met deze lage internetsnelheid.
 
 
-### JavaScript en LocalStorage
+### JavaScript uitzetten
+Ik heb geprobeerd zoveel mogelijk server side te werken waardoor de core functionaliteit van mijn website nog steeds bruikbaar is als de javascript niet gebruikt zou worden. Je weet immers niet of de eindgebruiker zijn of haar javascript voor redenen heeft uitgeschakelt
 
-### Cookies
+### Cookies niet accepteren
 Mijn website maakt geen gebruik van cookies.
 
-## Bronnen:
-- https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/
-- https://www.scienceguide.nl/wp-content/uploads/2018/03/HvA0005498-e1521710478778.jpg
+### localstorage doet het niet
+Ik maak geen gebruik van localstorage
 
 
-README TO DO:
-- Een (wireflow) schets van de functionaliteit met een beschrijving van de core functionality. Geef ook aan wat de functional/reliable, usable en pleasurable laag.
+## Test verslag
+Ik wil de volgende features gaan testen of ik ze kan gebruiken op mijn website. Door middel van de website [can I use](https://www.caniuse.com) kon ik checken welke browsers wat ondersteunen.  Ik heb ervoor gekozen om de volgende features te onderzoeken voor verschillende browsers:
+1. display: flex
+2. display: grid
+3. localstorage
 
-- Een beschrijving van de feature(s)/Browser Technologies die in je demo zijn gebruikt en hoe je dit PE hebt toegepast
 
-- Een lijst met vier browsers waarin je hebt getest:
-Desktop: 1 Chromium 1 niet-Chromium browser
-Mobiel: 1 iOS + 1 Android OF een Samsung- en een niet-Samsung Android)
-
-- Een testverslag met
-een beschrijving van de feature-lijst die zijn onderzocht
-welke browsers de feature(s) wel/niet ondersteunen
-welke functionaliteiten zoals JavaScript je aan en uit hebt gezet in de tests
+| Feature   	    |   Firefox	|   Samsung Internet	|   Intenret Exploror	|   Microsoft Edge	| Safari |
+|---	            |---	|---	|---	|---	|--- |
+| Display: Flex   	|   Ja	| Ja  	| Nee   	| Ja  	| Ja|
+| Display: Grid   	|   Ja	| Ja  	| Gedeeltelijk  	| Ja  	| Ja |
+| Localstorage  	|   Ja	| Ja  	| Ja  	|  Ja 	| Ja |
