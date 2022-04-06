@@ -25,13 +25,13 @@
         </section>
         <section>
             <form method="POST">
-                <input type="hidden" name="id">
+                
                 <fieldset>
                    <legend>Gender</legend>
                    <label for="gender">
                     <select id="size" name="gender" required>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="Male" <%if(shirtInData){%> <%if(shirtInData.gender == "Male") { %>selected<%}} %>>Male</option>
+                        <option value="Female" <%if(shirtInData){%> <%if(shirtInData.gender == "Female") { %>selected<%}} %>>Female</option>
                        
                     </select>
                 </fieldset>
@@ -39,28 +39,29 @@
                     <legend>Size</legend>
                     <label for="size">Choose a size:</label>
                     <select id="size" name="shirtSize" required>
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
+                        <option value="XS" <%if(shirtInData){%> <%if(shirtInData.shirtSize == "XS") { %>selected<%}} %> >XS</option>
+                        <option value="S" <%if(shirtInData){%> <%if(shirtInData.shirtSize == "S") { %>selected<%}} %>  >S</option>
+                        <option value="M" <%if(shirtInData){%> <%if(shirtInData.shirtSize == "M") { %>selected<%}} %>  >M</option>
+                        <option value="L" <%if(shirtInData){%> <%if(shirtInData.shirtSize == "L") { %>selected<%}} %>  >L</option>
+                        <option value="XL" <%if(shirtInData){%> <%if(shirtInData.shirtSize == "XL") { %>selected<%}} %>  >XL</option>
+                        <option value="XXL" <%if(shirtInData){%> <%if(shirtInData.shirtSize == "XXL") { %>selected<%}} %>  >XXL</option>
                     </select>
                     </fieldset>
                         <fieldset>
                             <legend>Color</legend>
                             <label for="size">Choose a Color:</label>
                             <select id="color" name="shirtColor" required>
-                                <option value="white">white</option>
-                                <option value="black">black</option>
-                                <option value="red">red</option>
-                                <option value="blue">blue</option>
+                                <option value="white"  <%if(shirtInData){%> <%if(shirtInData.shirtColor == "white") { %>selected<%}} %> >white</option>
+                                <option value="black" <%if(shirtInData){%> <%if(shirtInData.shirtColor == "black") { %>selected<%}} %> >black</option>
+                                <option value="red" <%if(shirtInData){%> <%if(shirtInData.shirtColor == "red") { %>selected<%}} %> >red</option>
+                                <option value="blue" <%if(shirtInData){%> <%if(shirtInData.shirtColor == "blue") { %>selected<%}} %> >blue</option>
                             </select>
                             </fieldset>
                             <fieldset>
                                 <legend>Text Input</legend>
-                                <input  id="textInput" type="text" minlength="0" maxlength="15" name="textValue" placeholder="your t-shirt text" required>
+                                <input  id="textInput" type="text" minlength="0" maxlength="15" name="textValue" placeholder="your t-shirt text" value="<%if(shirtInData){%><%= shirtInData.textValue %><%}%>">
                                 </fieldset>
+                                <input type="hidden" name="id" value="<%= id %>">
                                 <input id="saveMyDesign" type="submit" value="Save my design" formaction="/mydesigns">
                                 <input id="saveToCart" type="submit" value="Add to cart" formaction="/cart">
               </form>

@@ -24,15 +24,33 @@ app.set("views", "./src/views")
 // Routes
 // Route. Luistert naar alle GET requests op /
 app.get('/', (req, res) => {
-  fs.readFile('data/statham.json', 'UTF-8', (err, data)  => {
-    if (err) throw err
-    console.log('data is: ', data)
-    let info = JSON.parse(data)
+ if(req.query.edit) { //check if there is a query in the url with the name edit
+  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json')) //parse into json and read the file
+  const shirtInData = existingShirtInJSON.shirtjes.find( //find in the shirtjes array in the json file an object that has the same id as in the query 
+    ({ id }) => id == req.query.edit
+  )
   res.render("index.ejs", {
-  eerder_opgeslagen_data: info })
-  //res.send("hello world")
-})
-})
+    shirtInData, 
+    id: req.query.edit
+   }) 
+  } else {
+    res.render("index.ejs", {
+      shirtInData: undefined, 
+      id: uuidv4()
+     }) 
+   }
+  })
+
+
+//   fs.readFile('data/statham.json', 'UTF-8', (err, data)  => {
+//     if (err) throw err
+//     console.log('data is: ', data)
+//     let info = JSON.parse(data)
+//   res.render("index.ejs", {
+//   eerder_opgeslagen_data: info })
+//   //res.send("hello world")
+// })
+// })
 
 app.get('/mydesigns', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
@@ -79,17 +97,34 @@ app.post('/cart', (req, res) => {
   userInput = JSON.stringify(shirtData)
  
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
-  const existing_ID = existingShirtInJSON.id
-  const newShirtje = req.body
+  const shirtInData = existingShirtInJSON.shirtjes.find( //find in the shirtjes array in the json file an object that has the same id as in the query 
+  ({ id }) => id == req.body.id)
+
+  if(shirtInData) { //if shirt exists then overwrite
+    shirtInData.Gender = req.body.gender
+    shirtInData.Size = req.body.shirtSize
+    shirtInData.Color = req.body.shirtColor
+    shirtInData.Text = req.body.textValue
+  }
+  else{
+    existingShirtInJSON.shirtjes.push(req.body)
+  }
+
+
+
+  // const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
+  
+  // const existing_ID = existingShirtInJSON.id
+  // const newShirtje = req.body
 
   error = ""
 
    
-  if(existing_ID !== req.body.id){
-  existingShirtInJSON.shirtjes.push(newShirtje)
+  // if(existing_ID !== req.body.id){
+  // existingShirtInJSON.shirtjes.push(newShirtje)
   const stringData = JSON.stringify(existingShirtInJSON, null, 2)
   fs.writeFileSync('data/statham.json', stringData)
-}
+//}
 
 
 

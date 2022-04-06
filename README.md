@@ -11,12 +11,15 @@ Dit project is een studenten enquête in de vorm van een website waarbij het pro
 ## Use case
 > Ik wil mijn eigen t-shirt-met-nerdy-tekst kunnen ontwerpen, opslaan, bestellen, en een volgende keer dat ik de site bezoek kunnen gebruiken.
 
+## Breakdown schets
+Ik heb als eerst een breakdown schets gemaakt om goed na te kunnen denken over de core functionaliteiten van mijn app.
+![Breakdown schets](https://raw.githubusercontent.com/basv1996/browser-technologies-2122/main/img/breakdownSchets.png)
 
 ## Problemen inclusief oplossingen
 1. Afbeeldingen
     1. aangezien afbeeldingen veel laad tijd hebben en deze uitgezet kunnen worden heb ik ervoor gekozen SVG's te gebruiken. Deze wordt bijna overal gesupport behalve op IE 6-8 en op de android browser 2.1-2.3.
 2. HTML Forms
-    1. Tijdens het testen op de ipod touch kwam ik er achter dat het invoer veld voor email niet werkte. Dit komt omdat deze HTML5 feature niet werkt op sommige browsers. Dit kan ik verhelpen door de gebruikers input te verifieren op de server.
+    1. Tijdens het testen op de ipod touch kwam ik er achter dat het attribuut `required` bij een invoer veld niet werktte. Dit komt omdat deze HTML5 feature niet werkt op sommige browsers. Dit kan ik verhelpen door de gebruikers input te verifieren op de server.
 
 
 ## De verschillende geteste CSS en JavaScript features:
@@ -25,29 +28,41 @@ Dit project is een studenten enquête in de vorm van een website waarbij het pro
 
 ## De verschillende geteste browsers:
 
-- browser 1
+- Desktop: firefox: version 98
 
-- browser 2
+- Desktop: Internet Explorer 11
 
-- browser 3
+- Desktop: Chrome version 100
 
-- browser 4
+- Mobile: Samsung Browser 16
+
+- Mobile: Safari 7
 
 
+## Features
+
+## To-do
+|                     |  |
+| :------------------------------ | :---- |
+| Gegevens maker (naam, telefoon of email)                   | ✅    |
+| Kleur t-shirt                                              | ✅    |
+| Tekst t-shirt                                              | ✅    |
+| Maat t-shirt                                               | ✅    |
+| Man of Vrouw                                               | ✅    |
+| Verder gaan waar je gebleven bent/ontwerp herzien          | ✅    |
+| Validatie: alles moet zijn ingevuld. Geef duidelijke foutmeldingen            |   ✅     |
+| Gebruiker moet meerdere t-shirts kunnen maken en herzien, en moet dus een overzichtspagina hebben.     |   ✅     |
+| Bestel pagina om een ontwerp kopen en laten maken     |    ✅    |
 
 
 
 ### Muis/Trackpad
-Bij mijn website heb ik ook gekeken naar focus states voor het geval de gebruiker niet over een werkende muis of trackpad beschikt. De gebruiker kan met de `tab` toets door de pagina heen navigeren en met de spatiebalk clicks uitvoeren. Met de pijltjestoetsen kan de gebruiker bij `select` en `input type='radio'` een gewenste optie kiezen. De focus states zijn zichtbaar doormiddel van een 4px dashed outline bij de elementen. Blauw bij de knoppen en zwart bij alle andere elementen.
+Ik heb mijn website getest met keyboard only. Je kan makkelijk door de website heen tabben. De core functionaliteit van de website werkt naar toe behoren en alle belangrijke aspecten gaat de tab over heen.
 
-### Breedband internet
-Om de laadtijd van de website te testen heb ik bij Microsoft Edge (bij de andere browsers lukte het helaas niet) de laadtijd gemeten. Dit heb ik gedaan voor de opties 'no throttling' (geen netwerkbeperking), 'fast 3G' en 'slow 3G'. Bij de optie 'no throttling' was mijn eigen downloadsnelheid op het moment vant testen ongeveer 60mbps. Zie hier de resultaten:
 
-No throttling: ongeveer 40 ms
-Fast 3G: ongeveer 1,20 sec
-Slow 3G: ongeveer 6,5 sec
+### Internet
+Ik heb de wbsite getest met een regular 2G verbinding. De website laad nog steeds erg snel met deze lage internetsnelheid.
 
-Het lijkt misschien alsof 6,5 seconden erg lang duurt bij een langzaam 3G netwerk, maar onthoud dat dat de totale laadtijd van de pagina betreft. Al na ongeveer 2 seconden zijn alle HTML elementen zichtbaar en na ongeveer 4,5 seconden is ook alle CSS en JavaScript ingeladen. Op dat moment zie je de content op een grijze achtergrond (de fallback). Hierna duurt het ongeveer 2 seconden voordat ook de achtergrondafbeeldingen geladen zijn. Als alle content doormiddel van scripts geladen zou worden, zal de gebruiker langer moeten wachten voordat er content getoond wordt.
 
 ### JavaScript en LocalStorage
 
