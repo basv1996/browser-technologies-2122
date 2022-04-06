@@ -1,25 +1,3 @@
 {
-  "shirtjes": [
-    {
-      "id": "f5f1b3e7-0bf1-4f5e-b303-5c308006196f",
-      "gender": "Male",
-      "shirtSize": "XS",
-      "shirtColor": "white",
-      "textValue": "heheh"
-    },
-    {
-      "id": "bd59abe5-c517-47ef-abd0-fe1675678f0e",
-      "gender": "Male",
-      "shirtSize": "XS",
-      "shirtColor": "white",
-      "textValue": "heheh"
-    },
-    {
-      "id": "76842340-85b5-4b83-bf32-fdd6b0f83bca",
-      "gender": "Male",
-      "shirtSize": "XS",
-      "shirtColor": "white",
-      "textValue": "heheh"
-    }
-  ]
+  "shirtjes": []
 }

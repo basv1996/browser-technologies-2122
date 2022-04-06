@@ -54,9 +54,9 @@ app.post('/mydesigns', (req, res) => {
 
 app.get('/cart', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
-const errortje = req.query.error
-  console.log(errortje)
-  console.log(typeof errortje)
+  const errortje = req.query.error
+  // console.log(errortje)
+  // console.log(typeof errortje)
   error = ""
   if(errortje === "true") {
     error = "You haven't filled in an @ in your email adress"
@@ -82,7 +82,9 @@ app.post('/cart', (req, res) => {
   const existing_ID = existingShirtInJSON.id
   const newShirtje = req.body
 
+  error = ""
 
+   
   if(existing_ID !== req.body.id){
   existingShirtInJSON.shirtjes.push(newShirtje)
   const stringData = JSON.stringify(existingShirtInJSON, null, 2)
@@ -92,7 +94,7 @@ app.post('/cart', (req, res) => {
 
 
   res.render("cart.ejs", {
- 
+    errorMsg: error,
   shirtData: shirtData, 
   bestaandeShirtjes: existingShirtInJSON.shirtjes
 })
