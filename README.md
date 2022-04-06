@@ -43,7 +43,7 @@ De core functionaliteit van mijn applicatie is dat de gebruiker een t shirt kan 
 
 
 
-## To-do
+## Feature lijst voor app
 |                     |  |
 | :------------------------------ | :---- |
 | Gegevens maker (naam, telefoon of email)                   | ✅    |
@@ -95,6 +95,34 @@ Ik wil de volgende features gaan testen of ik ze kan gebruiken op mijn website. 
 
 | Feature   	    |   Firefox	|   Samsung Internet	|   Intenret Exploror	|   Microsoft Edge	| Safari |
 |---	            |---	|---	|---	|---	|--- |
-| Display: Flex   	|   Ja	| Ja  	| Nee   	| Ja  	| Ja|
-| Display: Grid   	|   Ja	| Ja  	| Gedeeltelijk  	| Ja  	| Ja |
-| Localstorage  	|   Ja	| Ja  	| Ja  	|  Ja 	| Ja |
+| Display: Flex   	|   ✅	| ✅  	| 🚫  	| ✅  	| ✅ |
+| Display: Grid   	|   ✅	| ✅  	| 🔶  	| ✅  	| ✅ |
+| Localstorage  	|   ✅	| ✅  	| ✅  	|  ✅ 	| ✅ |
+
+## Technieken voor support
+
+### CSS
+Om te testen voor de CSS kan je gebruik maken van `@supports` proeprty in de stylesheet de syntaxt hiervan is `@supports(property: value)`
+
+voorbeeld:
+```code
+.photo-layout {
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    flex: 200px;
+    margin: 1rem;
+  }
+}
+
+@supports (display: grid) {
+  .photo-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2rem;
+    > div {
+      margin: 0;
+    }
+  }
+}
+```
