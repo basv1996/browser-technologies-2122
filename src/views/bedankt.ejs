@@ -1,13 +1,11 @@
 <%- include('./partials/head') %>
-<%- include('./partials/header') %>
+<%- //include('./partials/header') %>
 <body>
     <main>
         <section>
             <h2>Thanks for your order <b><%= personalInformation.Firstname %></b></h2>
             <p>We sent the information to your email at: <b><%=  personalInformation.Email %> </b></p>
             <p>Your orderd the following:</p>
-            <ul>
-                <li><b>Your T-shirts:</b> </li>
                 <% bestaandeShirtjes.forEach(shirtje => {   %> 
                 <ul>
                     <li>Gender: <%= shirtje.gender %></li>
@@ -16,9 +14,10 @@
                     <li>Text: <%= shirtje.textValue %></li>
                 </ul>
                 <% }) %>
-            </ul>
         </section>
-       <a href="/" >Back to home</a>
+        <form method="post" action="/deleteCart">
+            <input type="submit" value="Back To Home">
+        </form>
     </main>
 
 

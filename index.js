@@ -35,29 +35,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/mydesigns', (req, res) => {
-  //const rawData = fs.readFileSync('static/data/userData.json');
-  //const cleanData = JSON.parse(rawData)
-  //console.log("cleanData is: ",cleanData)
+  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
 
   res.render("mydesign.ejs" , {
-    shirtData: shirtData 
+    //shirtData: shirtData,
+    bestaandeShirtjes: existingShirtInJSON.shirtjes 
   })
   
 })
 
 app.post('/mydesigns', (req, res) => {
-  const shirtData = {
-    id: req.body.id,
-    Gender: req.body.gender,
-    Size: req.body.shirtSize,
-    Color: req.body.shirtColor,
-    Text: req.body.textValue,
-  };
-  shirtData.id =  uuidv4()
-  console.log("design data: ", shirtData)
-  res.render("mydesign.ejs", {
-   
-  shirtData: shirtData 
+  res.render("mydesign.ejs", { 
+  shirtData: shirtData ,
+
 })
 })
 
@@ -66,8 +56,6 @@ app.get('/cart', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
   res.render("cart.ejs", {
     bestaandeShirtjes: existingShirtInJSON.shirtjes
-  
-  //res.send("cart page")
 })
 })
 
@@ -79,7 +67,6 @@ app.post('/cart', (req, res) => {
     Color: req.body.shirtColor,
     Text: req.body.textValue,
   };
-  //shirtData.id =  uuidv4()
   userInput = JSON.stringify(shirtData)
  
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
@@ -91,7 +78,6 @@ app.post('/cart', (req, res) => {
   const stringData = JSON.stringify(existingShirtInJSON, null, 2)
   fs.writeFileSync('data/statham.json', stringData)
 }
-  //console.log("shirtdata for cart",JSON.parse(shirtData))
   res.render("cart.ejs", {
   shirtData: shirtData, 
   bestaandeShirtjes: existingShirtInJSON.shirtjes
@@ -99,36 +85,30 @@ app.post('/cart', (req, res) => {
 })
 
 //Deleting a single item
-app.post('/delete/:id', (req, res) => {
-  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
-  const existing_ID = existingShirtInJSON.shirtjes.id
-  url_ID = req.params.id;
-  console.log("show json data: ", existingShirtInJSON)
-  console.log("url id geg: ",url_ID)
-  console.log(existingShirtInJSON.shirtjes)
+// app.post('/delete/:id', (req, res) => {
+//   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
+//   const existing_ID = existingShirtInJSON.shirtjes.find(({id}))
+//   url_ID = req.params.id;
+//   console.log("show json data: ", existingShirtInJSON)
+//   console.log("url id is:  ",url_ID)
+//   console.log(existing_ID)
  
+// })
+
+
+// Post request that empties the data array in the json file, so the shopping cart will be empty
+app.post('/deleteCart', (req, res) => {
+    const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json')) // read the json file
+    existingShirtInJSON.shirtjes.length = 0 // length of the data array becomes 0
+
+    const stringData = JSON.stringify(existingShirtInJSON, null, 2) // turn the changed array to json object
+    fs.writeFileSync('data/statham.json', stringData) // overwrite the old json file
+    res.redirect('/') // redirect to the shopping cart page
 })
 
 
-
-
-// //deleting a single user
-// router.post("/delete", function (req, res) {
-//   const DBUserID = ObjectID(req.body.ID);
-//   db.initialize(dbName, collectionName, function (dbCollection) {
-//     dbCollection.deleteOne({ _id: DBUserID }, function (error) {
-//       if (error) throw error;
-//       res.render("pages/delete-succes", {
-//         title: "Delete was succesfull",
-//       });
-//     });
-//   });
-// });
-
 app.get('/bedankt', (req, res) => {
- 
-  res.render("bedankt.ejs", {
-   
+  res.render("bedankt.ejs", { 
   })
 })
 
@@ -144,8 +124,6 @@ app.post('/bedankt', (req, res) => {
     bestaandeShirtjes: existingShirtInJSON.shirtjes
   }
   )
-  console.log("bedankt page body", req.body)
-  console.log("bestaande shirtjess: ", existingShirtInJSON.shirtjes)
 })
 
 app.get('/*', (req, res) => {
