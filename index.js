@@ -72,11 +72,11 @@ app.post('/mydesigns', (req, res) => {
     shirtInData.shirtColor = req.body.shirtColor
     shirtInData.textValue = req.body.textValue
   }
-  else{
+  else{ //if shirt does not exist push it into the array
     existingShirtInJSON.shirtjes.push(req.body)
   }
 
-  error = ""
+  error = "" // define the error message as an empty string
 
   const stringData = JSON.stringify(existingShirtInJSON, null, 2)
   fs.writeFileSync('data/statham.json', stringData)
@@ -93,7 +93,7 @@ app.post('/mydesigns', (req, res) => {
 app.get('/cart', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
   const errortje = req.query.error
-  error = ""
+  error = "" // define the error message as an empty string
   if(errortje === "true") {
     error = "You haven't filled in an @ in your email adress"
   } 
@@ -112,9 +112,9 @@ app.post('/cart', (req, res) => {
     shirtColor: req.body.shirtColor,
     textValue: req.body.textValue,
   };
-  userInput = JSON.stringify(shirtData)
+  userInput = JSON.stringify(shirtData) // converts an object or value to a JSON string
  
-  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
+  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json')) // parse a JSOn string
   const shirtInData = existingShirtInJSON.shirtjes.find( //find in the shirtjes array in the json file an object that has the same id as in the query 
   ({ id }) => id == req.body.id)
 
@@ -124,7 +124,7 @@ app.post('/cart', (req, res) => {
     shirtInData.shirtColor = req.body.shirtColor
     shirtInData.textValue = req.body.textValue
   }
-  else{
+  else{ // if shirt does not exist then push into the array shirtjes
     existingShirtInJSON.shirtjes.push(req.body)
   }
 
@@ -158,6 +158,7 @@ app.get('/bedankt', (req, res) => {
 
 
 var error  = "Your email doesn't have an @"
+
 app.post('/bedankt', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
   const personalInformation = {
