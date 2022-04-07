@@ -60,7 +60,7 @@ main > * {
 }
 
 @supports(display: flex){
-    header nav ul {
+    /* header nav ul {
         display: flex;
         justify-content: space-between;
         padding: 0 1em;
@@ -74,7 +74,7 @@ main > * {
 
     main > * {
         display: flex;
-    }
+    } */
 
 }
 
