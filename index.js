@@ -43,21 +43,10 @@ app.get('/', (req, res) => {
   })
 
 
-//   fs.readFile('data/statham.json', 'UTF-8', (err, data)  => {
-//     if (err) throw err
-//     console.log('data is: ', data)
-//     let info = JSON.parse(data)
-//   res.render("index.ejs", {
-//   eerder_opgeslagen_data: info })
-//   //res.send("hello world")
-// })
-// })
-
 app.get('/mydesigns', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
 
   res.render("mydesign.ejs" , {
-    //shirtData: shirtData,
     bestaandeShirtjes: existingShirtInJSON.shirtjes 
   })
   
@@ -74,8 +63,6 @@ app.post('/mydesigns', (req, res) => {
 app.get('/cart', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
   const errortje = req.query.error
-  // console.log(errortje)
-  // console.log(typeof errortje)
   error = ""
   if(errortje === "true") {
     error = "You haven't filled in an @ in your email adress"
@@ -89,11 +76,11 @@ app.get('/cart', (req, res) => {
 
 app.post('/cart', (req, res) => {
   const shirtData = {
-    id: req.body.id = uuidv4(),
-    Gender: req.body.gender,
-    Size: req.body.shirtSize,
-    Color: req.body.shirtColor,
-    Text: req.body.textValue,
+    id: req.body.id,
+    gender: req.body.gender,
+    shirtSize: req.body.shirtSize,
+    shirtColor: req.body.shirtColor,
+    textValue: req.body.textValue,
   };
   userInput = JSON.stringify(shirtData)
  
@@ -102,50 +89,25 @@ app.post('/cart', (req, res) => {
   ({ id }) => id == req.body.id)
 
   if(shirtInData) { //if shirt exists then overwrite
-    shirtInData.Gender = req.body.gender
-    shirtInData.Size = req.body.shirtSize
-    shirtInData.Color = req.body.shirtColor
-    shirtInData.Text = req.body.textValue
+    shirtInData.gender = req.body.gender
+    shirtInData.shirtSize = req.body.shirtSize
+    shirtInData.shirtColor = req.body.shirtColor
+    shirtInData.textValue = req.body.textValue
   }
   else{
     existingShirtInJSON.shirtjes.push(req.body)
   }
 
-
-
-  // const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
-  
-  // const existing_ID = existingShirtInJSON.id
-  // const newShirtje = req.body
-
   error = ""
 
-   
-  // if(existing_ID !== req.body.id){
-  // existingShirtInJSON.shirtjes.push(newShirtje)
   const stringData = JSON.stringify(existingShirtInJSON, null, 2)
   fs.writeFileSync('data/statham.json', stringData)
-//}
-
-
-
   res.render("cart.ejs", {
     errorMsg: error,
   shirtData: shirtData, 
   bestaandeShirtjes: existingShirtInJSON.shirtjes
 })
 })
-
-//Deleting a single item
-// app.post('/delete/:id', (req, res) => {
-//   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
-//   const existing_ID = existingShirtInJSON.shirtjes.find(({id}))
-//   url_ID = req.params.id;
-//   console.log("show json data: ", existingShirtInJSON)
-//   console.log("url id is:  ",url_ID)
-//   console.log(existing_ID)
- 
-// })
 
 
 // Post request that empties the data array in the json file, so the shopping cart will be empty
@@ -178,9 +140,6 @@ app.post('/bedankt', (req, res) => {
     res.redirect('/cart?error=true')
 
     return false;
-    // res.redirect('/cart', {
-    //   errorMsg: error
-    // })
   }
  
   res.render("bedankt.ejs", {

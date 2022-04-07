@@ -1,3 +1,11 @@
 {
-  "shirtjes": []
+  "shirtjes": [
+    {
+      "gender": "Female",
+      "shirtSize": "XS",
+      "shirtColor": "white",
+      "textValue": "ABC",
+      "id": "ae8ef263-3d9a-4381-b31b-2f951c0748a2"
+    }
+  ]
 }
