@@ -1,19 +1,20 @@
 <%- include('./partials/head') %>
 <%- //include('./partials/header') %>
 <body>
-    <main>
+    <main id="thankYouPage">
         <section>
             <h2>Thanks for your order <b><%= personalInformation.Firstname %></b></h2>
             <p>We sent the information to your email at: <b><%=  personalInformation.Email %> </b></p>
             <p>Your orderd the following:</p>
                 <% bestaandeShirtjes.forEach(shirtje => {   %> 
-                <ul>
-                    <li>Gender: <%= shirtje.gender %></li>
-                    <li>Size: <%= shirtje.shirtSize  %></li>
-                    <li>Color: <%= shirtje.shirtColor %></li>
-                    <li>Text: <%= shirtje.textValue %></li>
+                    <ul class="shirtsList">
+                <li><b>Gender:</b> <%= shirtje.gender %></li>
+                <li><b>Size:</b> <%= shirtje.shirtSize %></li>
+                <li><b>Color:</b> <%= shirtje.shirtColor %></li>
+                <li><b>text:</b> <%= shirtje.textValue %></li>
                 </ul>
                 <% }) %>
+
         </section>
         <form method="post" action="/deleteCart">
             <input type="submit" value="Back To Home">

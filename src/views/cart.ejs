@@ -1,35 +1,34 @@
 <%- include('./partials/head') %>
 <%- include('./partials/header') %>
 <body>
-    <main>
+    <main id="cartPage">
         <section>
             <h2>My Shopping cart</h2>
                    
             <div>
                 <h2>Your Shoppingcart: </h2>
-                <form method="post" action="/deleteCart">
+                <form class="emptyCart" method="post" action="/deleteCart">
                     <input type="submit" value="Empty Cart">
                 </form>
                 <hr>
                 <% bestaandeShirtjes.forEach(shirtje => {   %> 
-                    <!-- <form method="post" action="/delete/<%= shirtje.id %>">
-                        <input type="submit" value="Remove">
-                    </form> -->
-                    <ul>
-                <li>Gender: <%= shirtje.gender %></li>
-                <li>Size: <%= shirtje.shirtSize %></li>
-                <li>Color: <%= shirtje.shirtColor %></li>
-                <li>Text: <%= shirtje.textValue %></li>
+                    <ul class="shirtsList">
+                <li><b>Gender:</b> <%= shirtje.gender %></li>
+                <li><b>Size:</b> <%= shirtje.shirtSize %></li>
+                <li><b>Color:</b> <%= shirtje.shirtColor %></li>
+                <li><b>text:</b> <%= shirtje.textValue %></li>
+                <li><a href="/?edit=<%= shirtje.id %>">Edit me</a></li>
                 </ul>
-                <a href="/?edit=<%= shirtje.id %>">Edit me</a>
+               
                 <hr>
                 <% }) %>
             </div>
             <div>
                 <div>
-                    <a href="/">Maak nog een t-sirt</a>
+                    <a href="/">Make another T-shirt</a>
                 </div>
                 <%= errorMsg %>
+                <h4>Order</h4>
                 <%- include('./partials/checkout') %>
             </div>
         </section>

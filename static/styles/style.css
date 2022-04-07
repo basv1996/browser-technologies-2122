@@ -3,4 +3,141 @@
     padding: 0;
     box-sizing: content-box;
     font-family: 'Ubuntu', 'sans-serif', Arial, Helvetica, sans-serif;
+
+}
+
+:focus {
+    border: 3px dashed blue;
+}
+
+body{
+    background-color: rgba(204, 169, 169, 0.2);
+}
+
+a, input[type="submit"] {
+    text-decoration: none;
+    background-color: #f00;
+    color: #fff;
+    padding: .5em;
+    box-shadow: 2px 2px 2px #eee;
+}
+
+h1, h2, h3, h4 {
+    margin: 1em auto;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+body > * {
+    max-width: 95vw;
+    margin: 0 auto;
+}
+
+header {
+    background-color: rgba(255, 205, 97, 0.5);
+    padding: 1em 0;
+}
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+
+main {
+    margin: 1em auto;
+}
+
+main > * {
+    display: block;
+    margin: 0 auto;
+}
+
+@supports(display: flex){
+    main {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    main > * {
+        display: flex;
+    }
+
+}
+
+svg {
+    max-width: 500px;
+}
+
+form {
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 1em;
+}
+
+form > * {
+    margin: .5em 0;
+}
+
+form fieldset {
+    border-style: none;
+}
+
+form legend {
+	opacity: 0;
+}
+
+form select {
+    width: 100%;
+}
+
+/* Design Page */
+
+#designPage {
+	display: block;
+}
+
+#designPage > * {
+    display: block;
+}
+
+.shirtsList{
+    margin: 1em auto;
+}
+
+.shirtsList li:last-of-type {
+    margin: 1em 0;
+}
+
+
+/* Cart page */
+
+#cartPage > * {
+	display: block;
+}
+
+#cartPage section:first-of-type div:last-of-type {
+	margin: 2em auto 3em auto;
+}
+
+form.emptyCart {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+}
+
+/* Thank you page */
+
+#thankYouPage, #thankYouPage section {
+	display: block;
+}
+
+#thankYouPage section > * {
+	margin: 1em 0;
+}
+
+#thankYouPage .shirtsList li:last-of-type {
+    margin:  0;
 }

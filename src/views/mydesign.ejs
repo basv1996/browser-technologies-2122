@@ -1,19 +1,20 @@
 <%- include('./partials/head') %>
 <%- include('./partials/header') %>
 <body>
-    <main>
+    <main id="designPage">
         <section>
             <h2>My Design Page</h2>
-            <div>
+            <div >
                 
                 <% bestaandeShirtjes.forEach(shirtje => {   %> 
-                    <ul>
-                <li>Gender: <%= shirtje.gender %></li>
-                <li>Size: <%= shirtje.shirtSize %></li>
-                <li>Color: <%= shirtje.shirtColor %></li>
-                <li>Text: <%= shirtje.textValue %></li>
+                    <ul class="shirtsList">
+                <li><b>Gender:</b> <%= shirtje.gender %></li>
+                <li><b>Size:</b> <%= shirtje.shirtSize %></li>
+                <li><b>Color:</b> <%= shirtje.shirtColor %></li>
+                <li><b>text:</b> <%= shirtje.textValue %></li>
+                <li><a href="/?edit=<%= shirtje.id %>">Edit me</a></li>
                 </ul>
-                <a href="#">Edit this design</a>
+                
 <% })%>
                
                 

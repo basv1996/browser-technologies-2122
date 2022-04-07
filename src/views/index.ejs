@@ -1,9 +1,8 @@
 <%- include('./partials/head') %>
 <%- include('./partials/header') %>
 <body>
-    <main>
+    <main id="homePage">
         <section>
-            <h2>Product</h2>
             <div>
                 <?xml version="1.0" encoding="utf-8"?>
                 <!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -28,7 +27,7 @@
                 
                 <fieldset>
                    <legend>Gender</legend>
-                   <label for="gender">
+                   <label for="gender"> WHat is your Gender?</label>
                     <select id="size" name="gender" required>
                         <option value="Male" <%if(shirtInData){%> <%if(shirtInData.gender == "Male") { %>selected<%}} %>>Male</option>
                         <option value="Female" <%if(shirtInData){%> <%if(shirtInData.gender == "Female") { %>selected<%}} %>>Female</option>

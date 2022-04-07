@@ -53,8 +53,38 @@ app.get('/mydesigns', (req, res) => {
 })
 
 app.post('/mydesigns', (req, res) => {
+  const shirtData = {
+    id: req.body.id,
+    gender: req.body.gender,
+    shirtSize: req.body.shirtSize,
+    shirtColor: req.body.shirtColor,
+    textValue: req.body.textValue,
+  };
+  userInput = JSON.stringify(shirtData)
+ 
+  const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
+  const shirtInData = existingShirtInJSON.shirtjes.find( //find in the shirtjes array in the json file an object that has the same id as in the query 
+  ({ id }) => id == req.body.id)
+
+  if(shirtInData) { //if shirt exists then overwrite
+    shirtInData.gender = req.body.gender
+    shirtInData.shirtSize = req.body.shirtSize
+    shirtInData.shirtColor = req.body.shirtColor
+    shirtInData.textValue = req.body.textValue
+  }
+  else{
+    existingShirtInJSON.shirtjes.push(req.body)
+  }
+
+  error = ""
+
+  const stringData = JSON.stringify(existingShirtInJSON, null, 2)
+  fs.writeFileSync('data/statham.json', stringData)
+
   res.render("mydesign.ejs", { 
-  shirtData: shirtData ,
+    errorMsg: error,
+    shirtData: shirtData, 
+    bestaandeShirtjes: existingShirtInJSON.shirtjes
 
 })
 })
