@@ -1,3 +1,25 @@
 {
-  "shirtjes": []
+  "shirtjes": [
+    {
+      "gender": "Male",
+      "shirtSize": "XS",
+      "shirtColor": "blue",
+      "textValue": "hello",
+      "id": "ce4381a7-cfc9-4342-9b5c-7f2fbe452ae9"
+    },
+    {
+      "gender": "Male",
+      "shirtSize": "XS",
+      "shirtColor": "black",
+      "textValue": "stukje tekst ma",
+      "id": "b631c95f-b626-47f1-9310-21063628b3d2"
+    },
+    {
+      "gender": "Male",
+      "shirtSize": "XS",
+      "shirtColor": "white",
+      "textValue": "hello there",
+      "id": "5c415f19-0a9a-4063-8005-8ee58f6f6f12"
+    }
+  ]
 }
