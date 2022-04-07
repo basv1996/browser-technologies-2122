@@ -46,6 +46,11 @@ header nav ul {
     padding: 0 1em;
 }
 
+header nav ul li {
+        margin-right: 5px;
+        display: inline;
+    }
+
 main {
     margin: 1em auto;
 }
@@ -56,6 +61,13 @@ main > * {
 }
 
 @supports(display: flex){
+    header nav ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1em;
+    }
+
+    
     main {
         display: flex;
         flex-wrap: wrap;
