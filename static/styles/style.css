@@ -38,11 +38,11 @@ body > * {
 
 header {
     background-color: rgba(255, 205, 97, 0.5);
+    padding: 1em 0;
 }
 header nav ul {
     display: flex;
     justify-content: space-between;
-    padding: 0 1em;
 }
 
 header nav ul li {
