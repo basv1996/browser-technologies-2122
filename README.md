@@ -23,10 +23,14 @@ De core functionaliteit van mijn applicatie is dat de gebruiker een t shirt kan 
 2. HTML Forms
     1. Tijdens het testen op de ipod touch kwam ik er achter dat het attribuut `required` bij een invoer veld niet werktte. Dit komt omdat deze HTML5 feature niet werkt op sommige browsers. Dit kan ik verhelpen door de gebruikers input te verifieren op de server.
 
+## Progressive Enhancement
 
-## De verschillende geteste CSS en JavaScript features:
+Progressive enhancement is zorgen dat op verschillende browsers en apparaten de website nog werkt. Het gaat hierbij om de basis functionaliteit van een website. Het is voor de gebruiker belangrijk dat hij de belangrijkste content kan bekijken. Een website bestaat uit verschillende lagen: HTML, CSS en JS. Het is belangrijk dat de basis van een website goed is, duidelijke en semantische HTML content. Daarna kan je met CSS en JS de website mooier en gebruiksvriendelijk maken. Het is zo belangrijk om goede HTML te hebben omdat niet elke browser CSS en JS ondersteunt. Ook verschilt het tussen browsers welke functionaliteiten ze wel of niet ondersteunen. Wanneer je HTML is een los bestand heb kan de gebruiker in iedergeval altijd de content van jouw website bekijken.
 
-## Feature Detection
+### Hoe heb ik PE toegevoegd in mijn app?
+Door middel van veel functionaliteiten op de server te laten doen heb ik mijn client side javascript minimaal kunnen behouden. Dit is omdat je niet weet ofdat de eindgebruiker izjzn of haar javascript heeft uitgeschakeld.
+Ik heb nadat de server was opgebouwd de HTML pagina's gemaakt en ervoor gezorgd met basis HTML elementen zoals `form`, `input` en `a` kwam ik al een heel eind. Nadat de functionaliteit van de app af was ben ik hem mooier gaan maken. Ik heb bijvoorbeeld alle links en buttons die hetzelfde moeten doen heb dezelfde styling gegeven. Om een nog betere gebruikerservaring te kunnen aanbieden voor de eindgebruiker heb ik hierna nog client side javascript toegevoegd. Hierdoor kan de gebruiker bijvoorbeeld live zien wat er op het t-shirt komt te staan zodra hij of zij dit intypt in het invoer veld. 
+
 
 ## De verschillende geteste browsers:
 
@@ -99,7 +103,7 @@ Ik wil de volgende features gaan testen of ik ze kan gebruiken op mijn website. 
 | Display: Grid   	|   ✅	| ✅  	| 🔶  	| ✅  	| ✅ |
 | Localstorage  	|   ✅	| ✅  	| ✅  	|  ✅ 	| ✅ |
 
-## Technieken voor support
+## Technieken voor support / Feature Detection
 
 ### CSS
 Om te testen voor de CSS kan je gebruik maken van `@supports` proeprty in de stylesheet de syntaxt hiervan is `@supports(property: value)`
