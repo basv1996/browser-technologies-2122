@@ -4,8 +4,7 @@
     <main id="designPage">
         <section>
             <h2>My Design Page</h2>
-            <div >
-                
+            <div >  
                 <% bestaandeShirtjes.forEach(shirtje => {   %> 
                     <ul class="shirtsList">
                 <li><b>Gender:</b> <%= shirtje.gender %></li>
@@ -13,19 +12,12 @@
                 <li><b>Color:</b> <%= shirtje.shirtColor %></li>
                 <li><b>text:</b> <%= shirtje.textValue %></li>
                 <li><a href="/?edit=<%= shirtje.id %>">Edit me</a></li>
-                </ul>
-                
-<% })%>
-               
-                
-
+                </ul>           
+<% })%>      
             </div>
         </section>
         <section>
            
         </section>
     </main>
-
-
     <%- include('./partials/footer') %>
-
