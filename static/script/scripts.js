@@ -10,3 +10,4 @@ color.addEventListener("change", function() {
 textInput.addEventListener("keyup", function() {
     textOnShirt.innerHTML = textInput.value
 })
+
