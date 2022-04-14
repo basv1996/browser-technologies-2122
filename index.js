@@ -9,7 +9,7 @@ const { Console } = require('console');
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Internals
+// Internalsss
 const PORT = process.env.PORT || 1234
 
 // Gebruik body-parser om te lezen wat er in POST requests van de form staat
