@@ -11,4 +11,4 @@ textInput.addEventListener("keyup", function() {
     textOnShirt.innerHTML = textInput.value
 })
 
-console.log("test9")
+console.log("test10")
