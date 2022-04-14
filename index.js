@@ -89,7 +89,6 @@ app.post('/mydesigns', (req, res) => {
 })
 })
 
-
 app.get('/cart', (req, res) => {
   const existingShirtInJSON = JSON.parse(fs.readFileSync('data/statham.json'))
   const errortje = req.query.error
