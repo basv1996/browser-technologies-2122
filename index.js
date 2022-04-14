@@ -169,7 +169,6 @@ app.post('/bedankt', (req, res) => {
   if(!personalInformation.Email.includes("@")){
     error = "test"
     res.redirect('/cart?error=true')
-
     return false;
   }
  
