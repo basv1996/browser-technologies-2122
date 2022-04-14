@@ -72,7 +72,8 @@ app.post('/mydesigns', (req, res) => {
     shirtInData.shirtColor = req.body.shirtColor
     shirtInData.textValue = req.body.textValue
   }
-  else{ //if shirt does not exist push it into the array
+  else{ 
+    //if shirt does not exist push it into the array
     existingShirtInJSON.shirtjes.push(req.body)
   }
 
