@@ -49,7 +49,6 @@ app.get('/mydesigns', (req, res) => {
   res.render("mydesign.ejs" , {
     bestaandeShirtjes: existingShirtInJSON.shirtjes 
   })
-  
 })
 
 app.post('/mydesigns', (req, res) => {
