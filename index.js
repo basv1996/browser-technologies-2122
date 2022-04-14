@@ -85,7 +85,7 @@ app.post('/mydesigns', (req, res) => {
     errorMsg: error,
     shirtData: shirtData, 
     bestaandeShirtjes: existingShirtInJSON.shirtjes
-})
+  })
 })
 
 app.get('/cart', (req, res) => {
