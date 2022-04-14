@@ -184,7 +184,6 @@ app.get('/*', (req, res) => {
   res.render("error.ejs")
 })
 
-
 // start the server
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
