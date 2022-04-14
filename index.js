@@ -6,7 +6,6 @@ const fs = require('fs')
 const bodyParser = require('body-parser');
 const { Console } = require('console');
 
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
