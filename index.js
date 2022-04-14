@@ -101,7 +101,7 @@ app.get('/cart', (req, res) => {
   res.render("cart.ejs", {
     errorMsg: error,
     bestaandeShirtjes: existingShirtInJSON.shirtjes
-})
+  })
 })
 
 app.post('/cart', (req, res) => {
